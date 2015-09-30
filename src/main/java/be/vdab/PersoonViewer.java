@@ -1,17 +1,19 @@
 package be.vdab;
 
-import java.util.List;
+import be.vdab.services.PersoonService;
 
 public class PersoonViewer {
 
 	private final PersoonEigenschap[] persoonEigenschappen;
+	private final PersoonService persoonService;
 
-	public PersoonViewer(PersoonEigenschap[] persoonEigenschappen) {
+	public PersoonViewer(PersoonEigenschap[] persoonEigenschappen, PersoonService persoonService) {
 		this.persoonEigenschappen = persoonEigenschappen;
+		this.persoonService = persoonService;
 	}
 
-	public void afbeelden(List<Persoon> personen) {
-		for (Persoon persoon : personen)
+	public void afbeelden() {
+		for (Persoon persoon : persoonService.findAll())
 			System.out.println(tooneigenschappen(persoon));
 	}
 
@@ -22,21 +24,23 @@ public class PersoonViewer {
 		for (PersoonEigenschap eigenschap : persoonEigenschappen) {
 			switch (eigenschap) {
 			case PERSOON_NR:
-				resultaat.append(persoon.getPersoonNr()).append(" ");
+				resultaat.append(persoon.getPersoonNr());
 				break;
 
 			case VOORNAAM:
-				resultaat.append(persoon.getVoornaam()).append(" ");
+				resultaat.append(persoon.getVoornaam());
 				break;
 
 			case FAMILIENAAM:
-				resultaat.append(persoon.getFamilienaam()).append(" ");
+				resultaat.append(persoon.getFamilienaam());
 				break;
 
 			case AANTAL_KINDEREN:
-				resultaat.append(persoon.getAantalKinderen()).append(" ");
+				resultaat.append(persoon.getAantalKinderen());
 				break;
 			}
+			
+			resultaat.append(" ");
 		}
 
 		return resultaat.toString();

@@ -13,7 +13,7 @@ public class PersoonDAOCSV implements PersoonDAO {
 	private final File csvBestand;
 	
 	
-	public PersoonDAOCSV(File csvBestand) {
+	public PersoonDAOCSV(File csvBestand) { //TODO in container.xml de path aangeven
 		this.csvBestand = csvBestand;
 	}
 

@@ -5,6 +5,19 @@
 	xsi:schemaLocation='http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans.xsd'>
 						
+	
+	<bean id='persoonDAOCSV' class='be.vdab.dao.PersoonDAOCSV'>
+		<constructor-arg value='c:/'/> 
+	</bean>
+	
+	<bean id='persoonDAOMeerdereRegels' class='be.vdab.dao.PersoonDAOMeerdereRegels'>
+		<constructor-arg value='c:/'/>
+	</bean>
+	
+	<bean id='persoonServiceImpl' class='be.vdab.services.PersoonServiceImpl'>
+		<constructor-arg ref='persoonDAOCSV'/>
+	</bean>
+	
 	<bean id='persoonViewer' class='be.vdab.PersoonViewer'>
 		<constructor-arg>
 			<list>
@@ -13,6 +26,8 @@
 				<value>AANTAL_KINDEREN</value>
 			</list>	
 		</constructor-arg>
+		<constructor-arg ref='persoonServiceImpl'/>
 	</bean>
+	
 	
 </beans>
