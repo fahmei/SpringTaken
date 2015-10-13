@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 import be.vdab.Persoon;
 
-public class PersoonDAOCSV implements PersoonDAO {
+
+class PersoonDAOCSV implements PersoonDAO {
 
 	private final File csvBestand;
 	
-	
-	public PersoonDAOCSV(File csvBestand) { //TODO in container.xml de path aangeven
+	PersoonDAOCSV(File csvBestand) { 
 		this.csvBestand = csvBestand;
 	}
 
@@ -31,7 +31,7 @@ public class PersoonDAOCSV implements PersoonDAO {
 			}
 		}
 		catch(NumberFormatException ex){
-			//TODO
+			
 		}
 		
 		return personen;

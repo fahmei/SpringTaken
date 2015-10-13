@@ -1,7 +1,13 @@
-package be.vdab;
+package be.vdab.presentation;
 
+import org.springframework.stereotype.Controller;
+
+import be.vdab.Persoon;
+import be.vdab.PersoonEigenschap;
 import be.vdab.services.PersoonService;
 
+
+@Controller
 public class PersoonViewer {
 
 	private final PersoonEigenschap[] persoonEigenschappen;
@@ -12,9 +18,13 @@ public class PersoonViewer {
 		this.persoonService = persoonService;
 	}
 
+	
 	public void afbeelden() {
-		for (Persoon persoon : persoonService.findAll())
+		printArray();
+		
+		for (Persoon persoon : persoonService.findAll()){
 			System.out.println(tooneigenschappen(persoon));
+		}
 	}
 
 	private String tooneigenschappen(Persoon persoon) {
@@ -49,5 +59,16 @@ public class PersoonViewer {
 	public PersoonEigenschap[] getPersoonEigenschappen() {
 		return persoonEigenschappen;
 	}
+	
+	private void printArray() {
+		if(persoonEigenschappen != null){
+			for(PersoonEigenschap eigenschap:persoonEigenschappen){
+				System.out.println(eigenschap);
+			}
+		}else{
+			System.out.println("Array is leeg");
+		}
+	}
+
 
 }

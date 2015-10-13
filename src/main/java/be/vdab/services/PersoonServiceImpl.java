@@ -6,11 +6,13 @@ import java.util.List;
 import be.vdab.Persoon;
 import be.vdab.dao.PersoonDAO;
 
-public class PersoonServiceImpl implements PersoonService {
+
+
+class PersoonServiceImpl implements PersoonService {
 
 	PersoonDAO persoonDAO;
 	
-	public PersoonServiceImpl(PersoonDAO persoonDAO) {
+	PersoonServiceImpl(PersoonDAO persoonDAO) {
 		this.persoonDAO = persoonDAO;
 	}
 

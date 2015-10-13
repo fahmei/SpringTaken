@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 import be.vdab.Persoon;
 
-public class PersoonDAOMeerdereRegels implements PersoonDAO {
+
+class PersoonDAOMeerdereRegels implements PersoonDAO {
 
 	private final File bestand;
 	
-	
-	public PersoonDAOMeerdereRegels(File bestand) {	//TODO in container.xml de path aangeven
+	PersoonDAOMeerdereRegels(File bestand) {	
 		this.bestand = bestand;
 	}
 
@@ -21,8 +21,7 @@ public class PersoonDAOMeerdereRegels implements PersoonDAO {
 	public List<Persoon> findAll() throws IOException {
 		List<Persoon> personen = new ArrayList<>();
 		try(Scanner scanner = new Scanner(bestand)){
-			while(scanner.hasNextLine()){
-				scanner.nextLine(); // TODO mogelijks te verwijderen
+			while(scanner.hasNext()){
 				int nummer = scanner.nextInt();
 				scanner.nextLine();
 				String voornaam = scanner.nextLine();
